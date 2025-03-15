@@ -42,6 +42,9 @@ MonsterType monsterType;
 
 int main()
 {
+
+	srand((unsigned)time(0));
+
     while (true)
     {
 		cout << "게임을 시작하시겠습니까?" << endl;
