@@ -9,6 +9,8 @@ void EnterLobby();
 void EnterBattle();
 void CreatePlayer();
 void CreateRandomMonster();
+void EnterShop();
+void EnterDungeon();
 
 enum PlayerType
 {
@@ -61,6 +63,8 @@ int main()
     }
 }
 
+
+
 void EnterLobby()
 {
 	cout << "로비에 입장하였습니다." << endl;
@@ -78,9 +82,11 @@ void EnterLobby()
 		break;
 		case 2:
 		cout << "상점에 입장하였습니다." << endl;
+		EnterShop();
 		break;
 		case 3:
 		cout << "던전에 입장하였습니다." << endl;
+		EnterDungeon();
 		break;
 	}
 }
@@ -187,6 +193,47 @@ void CreateRandomMonster()
 		monsterStat.defence = 2;
 		monsterType = MT_Skeleton;
 		cout << "해골이 생성되었습니다. HP:" << monsterStat.hp << "Attack: " << monsterStat.attack << "Def: " << monsterStat.defence << endl;
+		break;
+	}
+}
+
+void EnterShop()
+{
+	cout << "상점에 입장하였습니다." << endl;
+	cout << "1. 체력포션 구매 2. 공격력 강화 3. 방어력 강화" << endl;
+	int input;
+	cin >> input;
+	switch (input)
+	{
+	case 1:
+		playerStat.hp += 20;
+		cout << "체력포션을 구매하였습니다. 현재 체력: " << playerStat.hp << endl;
+		break;
+	case 2:
+		playerStat.attack += 5;
+		cout << "공격력을 강화하였습니다. 현재 공격력: " << playerStat.attack << endl;
+		break;
+	case 3:
+		playerStat.defence += 2;
+		cout << "방어력을 강화하였습니다. 현재 방어력: " << playerStat.defence << endl;
+		break;
+	}
+}
+
+void EnterDungeon()
+{
+	cout << "던전에 입장하였습니다." << endl;
+	cout << "1. 던전 입장 2. 던전 나가기" << endl;
+	int input;
+	cin >> input;
+	switch (input)
+	{
+	case 1:
+		cout << "던전에 입장하였습니다." << endl;
+		EnterBattle();
+		break;
+	case 2:
+		cout << "던전에서 나왔습니다." << endl;
 		break;
 	}
 }
